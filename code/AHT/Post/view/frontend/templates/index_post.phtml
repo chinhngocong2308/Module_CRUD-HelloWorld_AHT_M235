@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * @var \AHT\Post\Block\Index $block
+ */
+
+$collection = $block->getAllPosts();
+$url = $block->getUrl('aht_post_demo/post/');
+?>
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 30px;
+    }
+    .danger:hover {
+        color: red;
+        text-decoration: none;
+    }
+
+    .primary:hover {
+        color: #1e6abc;
+        text-decoration: none;
+    }
+    a.text {
+        color: #1a1a1a;
+    }
+    td,
+    th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+
+    .post-id {
+        width: 2%
+    }
+
+    .post-name {
+        width: 30%
+    }
+</style>
+<h3><a class="" href="<?php echo $url . 'create' ?>">Add Post</a></h3>
+<table>
+    <thead>
+    <tr>
+        <th class="post-id">ID</th>
+        <th class="post-name">Name</th>
+        <th>URL Key</th>
+        <th>Content</th>
+        <th>Tags</th>
+        <th>Status</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($collection as $item) : ?>
+        <tr>
+            <td><?php echo $item->getData('post_id') ?></td>
+            <td><?php echo $item->getData('name') ?></td>
+            <td><?php echo $item->getData('url_key') ?></td>
+            <td><?php echo $item->getData('post_content') ?></td>
+            <td><?php echo $item->getData('tags') ?></td>
+            <td><?php echo ($item->getData('status') == 0) ? 'Pending' : 'Active' ?></td>
+            <td><a class="text primary" href="<?php echo $url . 'edit/post_id/' . $item->getData('post_id') ?>" >Edit</a>
+                | <a class="text danger" href="<?php echo $url . 'delete?post_id=' . $item->getId() ?>">Delete</a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

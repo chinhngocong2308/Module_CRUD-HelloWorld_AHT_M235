@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @var \AHT\Post\Block\Edit $block
+ */
+
+$post = $block->getPost();
+?>
+<style>
+    .btn-save {
+        padding: 5px 15px;
+        margin-top: 15px;
+        border: none;
+        background: #0fa7ff;
+        color: honeydew;
+        font-weight: bold;
+        border-radius: 5%;
+    }
+</style>
+
+<form action="<?php echo $this->getUrl('*/*/save') ?>" method="post">
+    <input name="form_key" type="hidden" value="<?php echo $block->getFormKey() ?>">
+    <input type="hidden" name='post_id' value="<?php echo $post->getData('post_id') ?>">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" value="<?php echo $post->getData('name') ?>" placeholder="Type Name Here">
+
+    <label for="name">URL Key</label>
+    <input type="text" name="url_key" id="url_key" value="<?php echo $post->getData('url_key') ?>" placeholder="Type url Here">
+
+    <label for="name">Tags</label>
+    <input type="text" name="tags" id="tags" value="<?php echo $post->getData('tags') ?>" placeholder="Type tags Here">
+
+    <label for="post_content">Content</label>
+    <textarea name="post_content" id="post_content" cols="30" rows="5" placeholder="Type Content here"><?php echo $post->getData('post_content') ?></textarea>
+
+    <label for="post_content">Status</label>
+    <select class="form-control"  name="status">
+        <option value=""> - Select Option-</option>
+        <option value="0" <?php echo $post->getData('status') == 0 ?"selected='selected' " : '' ?> > Pending </option>
+        <option value="1" <?php echo $post->getData('status') == 1 ?"selected='selected' " : ''?> > Active </option>
+    </select>
+    <input class="btn-save" type="submit" value="Save" />
+</form>

@@ -1,0 +1,40 @@
+<?php
+
+/**
+ * @var \AHT\Post\Block\Create $block
+ */
+
+?>
+<style>
+    .btn-save {
+        padding: 5px 15px;
+        margin-top: 15px;
+        border: none;
+        background: #0fa7ff;
+        color: honeydew;
+        font-weight: bold;
+        border-radius: 5%;
+    }
+</style>
+
+<form action="<?= $block->getUrl('aht_post_demo/post/save') ?>" method="post">
+    <input name="form_key" type="hidden" value="<?php echo $block->getFormKey() ?>">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" placeholder="Type Name Here">
+
+    <label for="post_content">Content</label>
+    <textarea name="post_content" id="post_content" cols="30" rows="5" placeholder="Type Content here"></textarea>
+    <label for="name">URL Key</label>
+    <input type="text" name="url_key" id="url_key" placeholder="Type url Here">
+
+    <label for="name">Tags</label>
+    <input type="text" name="tags" id="tags" placeholder="Type tags Here">
+
+    <label for="post_content">Status</label>
+    <select class="form-control" name="status">
+        <option value=""> - Select Option-</option>
+        <option value="0"> Pending</option>
+        <option value="1"> Active</option>
+    </select>
+    <input class="btn-save" type="submit" value="Save"/>
+</form>

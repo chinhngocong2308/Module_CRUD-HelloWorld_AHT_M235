@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * routes
+ *
+ * @copyright Copyright © 2021 Staempfli AG. All rights reserved.
+ * @author    juan.alonso@staempfli.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="arn:magento:framework:App/etc/routes.xsd">
+    <router id='standard'>
+        <route frontName="aht_post_demo" id="aht_post_demo">
+            <module name='AHT_Post' />
+        </route>
+    </router>
+</config>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * menu
+ *
+ * @copyright Copyright © 2021 Staempfli AG. All rights reserved.
+ * @author    juan.alonso@staempfli.com
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="AHT_HelloWorld::aht" title="AHT" module="AHT_HelloWorld" sortOrder="41" resource="AHT_HelloWorld::menu"/>
+        <add id="AHT_HelloWorld::parent" title="AHT Configuration" module="AHT_HelloWorld" sortOrder="10" resource="AHT_HelloWorld::menu" parent="AHT_HelloWorld::aht"
+             action="aht_helloworld/page/index"/>
+    </menu>
+</config>
